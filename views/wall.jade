@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	div
+		if(post)
+			each p in posts
+				div(class="ui cards center aligned grid")
+					div(class="card")
+						div(class="content")
+							div(class="header")= p.owner
+							div(class="meta")= p.date
+							div(class="description")= p.text
+	a(href="/submit")
+		button(class="ui blue button") Post your own ideas!

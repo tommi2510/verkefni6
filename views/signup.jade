@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div(class="ui one column center aligned stackable page grid")
+		div(class="eight wide column")
+			form(class="ui form" method="post" action="/signup")
+				if post
+					if !success
+						p Sign up failed!
+					else
+						p Sign up completed!
+				div(class="field")
+					label Username
+					div(class="ui left icon input")
+						input(type="text" name="username" placeholder="Username")
+						i(class="user icon")
+				div(class="field")
+					label Password
+					div(class="ui left icon input")
+						input(type="password" name="password" placeholder="Password")
+						i(class="lock icon")
+				button(class="ui blue button submit" type="submit") Sign up		

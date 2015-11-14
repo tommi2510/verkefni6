@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	div(class="ui one column center aligned stackable page grid")
+		div(class="eight wide column")
+			form(class="ui form" method="post" action="/wall")
+				div(class="field")
+					label
+					div(class="ui left icon input")
+						textarea(type="text" name="textarea" placeholder="What's on your mind today Sir/Miss?")
+				button(class="ui blue button submit" type="submit") Post

@@ -1,0 +1,14 @@
+{
+  "name": "verkefni6",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Tomas Oli Gardarsson <tommigardars@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
