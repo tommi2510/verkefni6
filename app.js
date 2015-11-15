@@ -40,7 +40,6 @@ app.use(session({
   name: 'session'
 }));
 
-//app.use('/', routes);
 app.use('/', wall);
 app.use('/', login);
 app.use('/', signup);
