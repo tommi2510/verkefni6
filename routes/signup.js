@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var express = require('express');
 var router = express.Router();
@@ -36,7 +36,7 @@ function signupHandler(req, res, next) {
 
 		
 		res.render('signup', { title: 'Sign Up', post: true, success: success });
-	})
+	});
 	
 }
 

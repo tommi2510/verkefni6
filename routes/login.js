@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var express = require('express');
 var router = express.Router();
@@ -15,7 +15,7 @@ module.exports = router;
 
 function redirectIfLoggedIn(req, res, next){
 	if(req.session.user){
-		res.redirect('/wall');
+		res.redirect('/');
 	}
 	else {
 		next();
@@ -36,7 +36,7 @@ function loginHandler(req, res, next){
 		if(user){
 			req.session.regenerate(function(){
 				req.session.user = user;
-				res.redirect('/wall');
+				res.redirect('/');
 			});
 		}
 		else {

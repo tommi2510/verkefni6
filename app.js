@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -38,7 +40,7 @@ app.use(session({
   name: 'session'
 }));
 
-app.use('/', routes);
+//app.use('/', routes);
 app.use('/', wall);
 app.use('/', login);
 app.use('/', signup);

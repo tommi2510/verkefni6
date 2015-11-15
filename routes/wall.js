@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var express = require('express');
 var moment = require('moment');
@@ -6,8 +6,8 @@ var router = express.Router();
 
 var users = require('../lib/users');
 
-router.get('/wall', index);
-router.post('/wall', submitHandler);
+router.get('/', index);
+router.post('/', submitHandler);
 router.get('/submit', ensureLoggedinIn, submit);
 router.get('/logout', logout);
 
@@ -21,7 +21,7 @@ function ensureLoggedinIn(req, res, next) {
   if (req.session.user) {
     next(); // köllum í næsta middleware ef við höfum notanda
   } else {
-    res.redirect('/login');
+    res.render('login', {loggedin: 'You will have to be logged in to use this feature!'});
   }
 }
 
@@ -35,9 +35,14 @@ function index(req, res, next){
 
 			for (var i = 0; i < all.length; i++) {
 				all[i].date = moment(all[i].date).fromNow();
-			};
+			}
 
-			res.render('wall', { title: 'Wall', posts: all, post: true, user: req.session.user });
+			var loggedin = false;
+			if(req.session.user){
+				loggedin = true;
+			}
+
+			res.render('wall', { title: 'Wall', posts: all, post: true, user: loggedin });
 		});
 
 }
@@ -57,7 +62,7 @@ function submitHandler(req, res, next){
 			success = false;
 		}
 		if(success) {
-			res.redirect('/wall');
+			res.redirect('/');
 		}
 		else {
 			return err;
@@ -68,7 +73,12 @@ function submitHandler(req, res, next){
 }
 
 function submit(req, res, next){
-	res.render('submit', { title: 'Submit' });
+	var loggedin = false;
+			if(req.session.user){
+				loggedin = true;
+			}
+
+	res.render('submit', { title: 'Submit', user: loggedin });
 }
 
 function logout(req, res, next){
