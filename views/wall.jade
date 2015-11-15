@@ -2,7 +2,9 @@ extends layout
 
 block content
 	div
-		if(post)
+		if !user
+			p(class="ui center aligned grid")= 'Sign up to create a post!'
+		if post
 			each p in posts
 				div(class="ui cards center aligned grid")
 					div(class="card")
